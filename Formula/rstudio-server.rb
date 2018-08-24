@@ -4,6 +4,14 @@ class RstudioServer < Formula
   url "https://github.com/rstudio/rstudio/archive/v1.1.456.tar.gz"
   sha256 "1362ad0afdb214d85e4edf86a1d42d0f83d0fa91dc4e5079af6424df9b1573d0"
 
+  bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-base"
+    prefix "/usr/local"
+    cellar "/usr/local/Cellar"
+    sha256 "567178b6b86c30416b3361d1325eaeb9b2ae84a21b73817b083093fe43088c28" => :sierra_or_later
+    sha256 "42db0df6d4ff4e878ba39beded33ebdc4b3efcd6e6ea9663ae4bf7d62bdb0483" => :x86_64_linux
+  end
+
   if OS.linux?
     if ENV["CIRCLECI"] || ENV["TRAVIS"]
       depends_on "jdk@8" => :build
